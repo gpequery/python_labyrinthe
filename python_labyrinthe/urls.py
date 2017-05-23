@@ -22,4 +22,6 @@ from python_labyrinthe.views import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home', views.index),
+    url(r'^easyLab', views.easyLab),
+    url(r'^hardLab', views.hardLab),
 ]
