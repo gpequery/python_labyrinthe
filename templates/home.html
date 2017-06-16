@@ -1,8 +1,25 @@
 {% extends "template.html" %}
 
 {% block content %}
-    <div class="homeInput">
-        <input type="submit" value="Facile" onclick="window.location.href='easyLab'" />
-        <input type="submit" value="Dur" onclick="window.location.href='hardLab'" />
-    </div>
+    <form method='POST' class="formSignIn">
+        <input type='text' name='pseudo' placeholder='Pseudo' minlength='5'>
+        <input type='password' name='password' placeholder='Password' minlength='5'>
+        <input type='password' name='confPassword' placeholder='Password' minlength='5'>
+        <a href='#' id="subscribe">Inscription</a>
+        <input type='submit' value='Connexion'>
+    </form>
+
+    <script>
+        $j("#subscribe").on('click', function() {
+            if ($j('.formSignIn input[name=confPassword]').css('display') == 'inline') {
+                $j('.formSignIn input[name=confPassword]').hide('slow');
+                $j('.formSignIn input[type=submit]').val('Connexion');
+                $j('.formSignIn a').html('Inscription');
+            } else {
+                $j('.formSignIn input[name=confPassword]').show('slow');
+                $j('.formSignIn input[type=submit]').val('Inscription');
+                $j('.formSignIn a').html('Connexion');
+            }
+        })
+    </script>
 {% endblock %}
